@@ -1,0 +1,51 @@
+{
+	"name": "Promocion WoW Chile",
+	"description": "Promociones",
+	"author": {
+		"name": "Doomer",
+		"website": "https://github.com/xhaher"
+	},
+
+	"permissions": {
+		"use_cta": {"default" : true, "description": "Permitir" },
+		"canDelete": {"default" : true, "description": "Borrar Promociones" },
+		"canViewAdmin": {"default" : true, "description": "Visualizar" }
+	},
+
+	"roles": {
+		"use": {
+			"description": "Allow promotion.",
+
+			"permissions": {
+				"use_cta": true
+			}
+		},
+
+		"manage": {
+			"description": "View the promotion logs.",
+			"dangerLevel": 2,
+
+			"permissions": {
+				"canViewAdmin": true,
+				"canDelete": true
+			}
+		}
+	},
+
+	"admin": [
+		{
+			"text": "Users",
+			"icon": "users",
+			"links": [
+				{
+					"text": "Promociones",
+					"icon": "users",
+					"controller": "admin",
+					"requirePermission": "canViewAdmin"
+				}
+			]
+		}
+	],
+	
+	"enabled": true
+}

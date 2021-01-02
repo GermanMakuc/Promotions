@@ -1,0 +1,28 @@
+#promotion{
+    text-align: center;
+}
+#cta_description{
+    margin-bottom: 5%;
+    font-size: large;
+}
+input[type="submit"]{
+    width: 50%;
+    display: block;
+    margin-bottom: 10px;
+    text-align: center;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+.cta_row{
+    margin: 5%, 5%, 5%, 5%;
+}
+label{
+    font-size: large;
+    font-style: inherit;
+    color: gray;
+}
+#cta_description > .success{
+    font-size: large;
+    font-style: inherit;
+    color: gray;
+}

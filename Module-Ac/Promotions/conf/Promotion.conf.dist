@@ -1,0 +1,15 @@
+[worldserver]
+
+#
+# Oro regalado al inicio en monedas bronce
+# default: 3000000
+#
+
+MoneyGiven=3000000
+
+#
+# Nivel por defecto otorgado
+# default: 80
+#
+
+LevelMax=80
