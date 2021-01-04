@@ -1,15 +1,13 @@
-# NEW MODULE - SQL BEST PRACTICES
+## Creación de la nueva tabla character_promotion
 
-## Create a new table
-
-**Example:**
 ```
-CREATE TABLE IF NOT EXISTS `table`(
-  `id` int(11) unsigned NOT NULL,
-  `column` smallint(6) unsigned,
-  `active` BOOLEAN DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE `character_promotion` (
+  `id` int(11) NOT NULL,
+  `guid` int(10) NOT NULL,
+  `account` int(10) NOT NULL,
+  `entregado` tinyint(1) NOT NULL DEFAULT '0',
+  `ingreso` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 ```
 
 **Boolean datatype in mysql:**
