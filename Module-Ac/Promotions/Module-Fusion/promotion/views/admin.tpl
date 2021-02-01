@@ -2,7 +2,7 @@
 <section class="box big" id="main_slider">
     <h2>
 		<img src="{$url}application/themes/admin/images/icons/black16x16/ic_list.png"/>
-		Estado de Promociones (<div style="display:inline;" id="promotion_count">{if !$promotions}0{else}{count($promotions)}{/if}</div>)
+		Estado de Promociones (<div style="display:inline;" id="promotion_count">{if !$promotions}0{else}{count($promotions)}{/if}</div>) en "{$RealmName}"
     </h2>
     
     <span>
@@ -15,7 +15,6 @@
             <table id="data" class="hover" style="width:100%">
                 <thead>
                     <tr>
-                        <th>Id</th>
                         <th>Character</th>
                         <th>Cuenta</th>
                         <th>Estado</th>
@@ -27,7 +26,6 @@
                     {if $promotions}
                     {foreach from=$promotions item=value}
                     <tr id="{$value.id}">
-                        <td>{$value.id}</td>
                         <td>{$value.guid}</td>
                         <td>{$value.account}</td>
                         {if $value.entregado == 1}
@@ -37,7 +35,7 @@
                         {/if}
                         <td>{$value.ingreso}</td>
                         <td>
-                            <a href="javascript:void(0)" onClick="Slider.remove({$value.id}, {$firstRealm}, this)" data-tip="Delete"><img src="{$url}application/themes/admin/images/icons/black16x16/ic_minus.png" /></a>
+                            <a href="javascript:void(0)" onClick="Slider.remove({$value.id}, {$RealmId}, this)" data-tip="Delete"><img src="{$url}application/themes/admin/images/icons/black16x16/ic_minus.png" /></a>
                         </td>
                     </tr>
                     {/foreach}
@@ -45,7 +43,6 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                        <th>Id</th>
                         <th>Character</th>
                         <th>Cuenta</th>
                         <th>Estado</th>

@@ -15,24 +15,46 @@ class Admin extends MX_Controller
 
 	public function index()
 	{
+		// Change the title
+		$this->administrator->setTitle("Promociones");
+
+		// Prepare the compitable realms
 		$CompitableRealms = array();
+
 		foreach ($this->realms->getRealms() as $realmData)
 		{
 			$CompitableRealms[] = array('id' => $realmData->getId(), 'name' => $realmData->getName());
 		}
-		unset($realmData);
 		
 		if (empty($CompitableRealms))
 		{
 			return;
 		}
-		
-		// Get the first compitable realm
-		$FirstRealm = $CompitableRealms[0];
+
+		// Prepare my data
+		$data = array(
+			'url' => $this->template->page_url,
+			'realms' => $CompitableRealms,
+			'tokenName' => $this->security->get_csrf_token_name(),
+			'tokenValue' => $this->security->get_csrf_hash()
+		);
+
+		// Load my view
+		$output = $this->template->loadPage("adminIndex.tpl", $data);
+
+		// Put my view in the main box with a headline
+		$content = $this->administrator->box('Promociones', $output);
+
+		// Output my content. The method accepts the same arguments as template->view
+		$this->administrator->view($content, false, "modules/promotion/js/admin.js");
+	}
+	public function viewRealm()
+	{
 		// Change the title
 		$this->administrator->setTitle("Promociones");
-
-		$arrayRaw = $this->promotion_model->getPromotion($FirstRealm['id']);
+		// Get the post variables
+		$RealmId = (int)$this->input->post('realmId');
+		$arrayRaw = $this->promotion_model->getPromotion($RealmId);
 
 		if($arrayRaw)
 		{
@@ -40,7 +62,7 @@ class Admin extends MX_Controller
 			{
 				$guid = $arrayRaw[$k]["guid"];
 				$idACC = $arrayRaw[$k]["account"];
-				$arrayRaw[$k]["guid"] = $this->promotion_model->getNameByGuid($FirstRealm['id'], $guid);
+				$arrayRaw[$k]["guid"] = $this->promotion_model->getNameByGuid($RealmId, $guid);
 				$arrayRaw[$k]["account"] = $this->promotion_model->getNameAccount($idACC);
 			}
 		}
@@ -49,8 +71,8 @@ class Admin extends MX_Controller
 		$data = array(
 			'url' => $this->template->page_url,
 			'promotions' => $arrayRaw,
-			'realms' => $this->realms->getRealms(),
-			'firstRealm' => $FirstRealm['id']
+			'RealmId' => $RealmId,
+			'RealmName' => $this->realms->getRealm($RealmId)->getName()
 		);
 
 		// Load my view

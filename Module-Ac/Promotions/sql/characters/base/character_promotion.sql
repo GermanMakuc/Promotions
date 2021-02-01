@@ -33,6 +33,7 @@ CREATE TABLE `character_promotion` (
   `guid` int(10) NOT NULL,
   `account` int(10) NOT NULL,
   `entregado` tinyint(1) NOT NULL DEFAULT '0',
+  `realm` tinyint(1) NOT NULL,
   `ingreso` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 

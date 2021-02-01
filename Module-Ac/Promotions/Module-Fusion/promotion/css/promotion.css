@@ -1,5 +1,7 @@
 #promotion{
     text-align: center;
+    padding: 5%;
+    padding-bottom: 50%;
 }
 #cta_description{
     margin-bottom: 5%;
@@ -8,10 +10,9 @@
 input[type="submit"]{
     width: 50%;
     display: block;
-    margin-bottom: 10px;
     text-align: center;
-    margin-left: 25%;
-    margin-right: 25%;
+    margin-left: 35%;
+    margin-top: 2%;
 }
 .cta_row{
     margin: 5%, 5%, 5%, 5%;

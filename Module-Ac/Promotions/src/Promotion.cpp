@@ -11,7 +11,10 @@ public:
 
     void OnLogin(Player* player) override
     {
-        QueryResult result = CharacterDatabase.PQuery("SELECT guid FROM character_promotion WHERE guid = %u AND entregado = 0", player->GetSession()->GetGuidLow());
+        uint32 RealmId = sConfigMgr->GetIntDefault("RealmId", 1);
+        uint32 Account = player->GetSession()->GetAccountId();
+        uint32 Guid = player->GetSession()->GetGuidLow();
+        QueryResult result = CharacterDatabase.PQuery("SELECT guid FROM character_promotion WHERE guid = %u AND account = %u AND entregado = 0 AND realm = %u", Guid, Account, RealmId);
         if (result)
             DefaultGift(player);
     }

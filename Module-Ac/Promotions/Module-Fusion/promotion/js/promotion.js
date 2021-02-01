@@ -74,7 +74,7 @@ var CharacterTransfer = {
 		CharacterTransfer.SelectedCharacter = Character;
 		
 		// Set a little loading message
-		UI.alert('Loading...');
+		UI.alert('Cargando...');
 		
 		// Process the transfer
 		$.post(Config.URL + CharacterTransfer.MODULE_NAME + "/process", 

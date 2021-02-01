@@ -42,8 +42,6 @@ class Promotion extends MX_Controller
 		requirePermission("use_cta");
 		
 		$this->template->setTitle($this->language['TITLE']);
-
-		//$external = $this->external_account_model->getInfo($this->user->getId(), "last_ip");
 		
 		// Prepare the compitable realms
 		$CompitableRealms = array();
@@ -125,9 +123,7 @@ class Promotion extends MX_Controller
 		$page = $this->template->loadPage("page.tpl", $data);
 		
 		$keywords = $this->language['KEYWORDS'];
-		$description = 'The character ' . $character . ' from realm '.$realm.' has been successfully transferred to account '.$account.'.';
 		
-		$this->template->setDescription($description);
 		$this->template->setKeywords($keywords);
 
 		$this->template->view($page, $this->css, false);
@@ -135,12 +131,12 @@ class Promotion extends MX_Controller
 	
 	private function ErrorPage()
 	{
-		$this->template->setTitle("An error occured!");
+		$this->template->setTitle("Un error ha ocurrido");
 
 		$data = array(
 			"module" => "default", 
-			"headline" => 'An error occured!', 
-			"content" => "<center style='margin:10px;font-weight:bold;'>This module cannot work with no realms.</center>"
+			"headline" => 'Un error ha ocurrido', 
+			"content" => "<center style='margin:10px;font-weight:bold;'>Este módulo necesita de al menos un realm.</center>"
 		);
 
 		$page = $this->template->loadPage("page.tpl", $data);
@@ -150,12 +146,12 @@ class Promotion extends MX_Controller
 	
 	private function BannedPage()
 	{
-		$this->template->setTitle("An error occured!");
+		$this->template->setTitle("Un error ha ocurrido");
 
 		$data = array(
 			"module" => "default", 
-			"headline" => 'An error occured!', 
-			"content" => "<center style='margin:10px;font-weight:bold;'>" . (isset($this->language['BANNED_MSG']) ? $this->language['BANNED_MSG'] : 'Your account is banned!') . "</center>"
+			"headline" => 'Un error ha ocurrido', 
+			"content" => "<center style='margin:10px;font-weight:bold;'>" . (isset($this->language['BANNED_MSG']) ? $this->language['BANNED_MSG'] : 'Tú cuenta se encuentra baneada') . "</center>"
 		);
 
 		$page = $this->template->loadPage("page.tpl", $data);
@@ -256,8 +252,6 @@ class Promotion extends MX_Controller
 				die($this->language['HORDE_ERROR']);
 		}
 			
-			// Log this transfer
-			//$this->promotion_model->InsertLog($GUID, ucfirst(strtolower($Character)), $DestAccID, ucfirst(strtolower($destination)), $RealmId, $Price, $PriceCurrency, $StartCurrency, $EndCurrency);
 	}
 	
 	private function GetMyCharacters($realmId)

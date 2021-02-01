@@ -1,6 +1,13 @@
 [worldserver]
 
 #
+# Realm Id que reciba promociones
+# default: 1
+#
+
+RealmId=1
+
+#
 # Oro regalado al inicio en monedas bronce
 # default: 3000000
 #

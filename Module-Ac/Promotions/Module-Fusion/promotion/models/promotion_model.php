@@ -72,13 +72,10 @@ class Promotion_model extends CI_Model
 	public function countAccbyip($realmId, $ip)
 	{
 		$count = 0;
-		//$count = $this->connection->from(table("account"))->where(array(column("account", "last_ip") => $ip));
-
 		$this->connect();
-		
 		$this->connection->select("id,username")->from(table("account"))->where(array(column("account", "last_ip") => $ip));
 		$query = $this->connection->get();
-		
+
 		if($query->num_rows() > 0)
 		{
 			$result = $query->result_array();
@@ -101,7 +98,7 @@ class Promotion_model extends CI_Model
 	{
 		$db = $this->realms->getRealm($realmId)->getCharacters()->getConnection();
 		
-		$query = $db->query(" INSERT INTO `character_promotion` (`guid`, `account`) VALUES (?,?);", array($guid, $account));
+		$query = $db->query(" INSERT INTO `character_promotion` (`guid`, `account`, `realm`) VALUES (?,?,?);", array($guid, $account, $realmId));
 		
 		if ($query)
 		{
