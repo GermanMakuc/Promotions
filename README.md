@@ -98,7 +98,7 @@ $config['cta_language'] = array(
 5) Re-run cmake y compilar AzerothCore limpio.
 ```
 
-##Inserción de la dependencia DataTables en la plantilla de admin de fusionCMS
+## Inserción de la dependencia DataTables en la plantilla de admin de fusionCMS
 
 > application\themes\admin\template.tpl
 
