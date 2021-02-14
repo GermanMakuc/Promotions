@@ -1,11 +1,11 @@
 # Promotions
  
- Compuesto de módulos los cuales permiten realizar promociones automáticas para servidores de Azerothcore y FusionCMS
+ Compuesto de módulos los cuales permiten realizar promociones automáticas para servidores de Azerothcore y FusionCMS.
  
 ##  Módulo de Azerothcore
 
-* Otorga el nivel bajo el evento Onlogin
-* Configurable el oro, realm y nivel otorgado
+* Otorga el nivel bajo el evento Onlogin.
+* Configurable el oro, realm y nivel otorgado.
 
 > Module-AC\Promotions\conf\Promotion.conf
 
@@ -34,9 +34,9 @@ MoneyGiven=3000000
 LevelMax=80
 ```
 
-## Módulo de Fusion
+## Módulo de FusionCMS
 
-* Configurable limitación por facción, posición, characters permitidos por ip, string de errores
+* Configurable limitación por facción, posición, characters permitidos por ip, string de errores.
 
 > Module-Fusion\promotion\config\promotion_config.php
 
@@ -98,11 +98,11 @@ $config['cta_language'] = array(
 5) Re-run cmake y compilar AzerothCore limpio.
 ```
 
-Inserción de la dependencia DataTables en la plantilla de admin de fusionCMS:
+##Inserción de la dependencia DataTables en la plantilla de admin de fusionCMS
 
 > application\themes\admin\template.tpl
 
-Despúes de la librería Jquery
+Despúes de la librería Jquery.
 
 ```
 <script type="text/javascript"src="https://code.jquery.com/jquery-3.5.1.js"></script>
