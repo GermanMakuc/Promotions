@@ -112,5 +112,5 @@ Despúes de la librería Jquery.
 
 ## Creditos 
 
-* [Xhaher](https://github.com/xhaher) (Autor del módulo)
+* [GermanMakuc](https://github.com/GermanMakuc) (Autor del módulo)
 * AzerothCore: [repository](https://github.com/azerothcore) - [website](http://azerothcore.org/) - [discord chat community](https://discord.gg/PaqQRkd)
